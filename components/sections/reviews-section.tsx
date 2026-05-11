@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import { Star, ChevronLeft, ChevronRight, Quote, SmilePlus, MapPin, UtensilsCrossed } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const reviews = [
@@ -52,6 +52,13 @@ const reviews = [
   },
 ]
 
+const stats = [
+  { value: "4.9", label: "Calificación Promedio", icon: Star },
+  { value: "10K+", label: "Clientes Felices", icon: SmilePlus },
+  { value: "3", label: "Sucursales", icon: MapPin },
+  { value: "50+", label: "Platillos en Menú", icon: UtensilsCrossed },
+]
+
 export function ReviewsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -87,10 +94,8 @@ export function ReviewsSection() {
           </div>
         </div>
 
-
         {/* Reviews Carousel */}
         <div className="relative">
-          {/* Navigation Buttons */}
           <div className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 hidden md:block">
             <Button
               variant="outline"
@@ -112,35 +117,24 @@ export function ReviewsSection() {
             </Button>
           </div>
 
-          {/* Reviews Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-8">
             {visibleReviews.map((review, index) => (
               <div
                 key={`${review.id}-${index}`}
                 className="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
               >
-                {/* Quote Icon */}
                 <Quote className="w-8 h-8 text-primary/30 mb-4" />
-
-                {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-5 h-5 ${i < review.rating
-                          ? "text-yellow-400 fill-yellow-400"
-                          : "text-muted-foreground"
-                        }`}
+                      className={`w-5 h-5 ${i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-muted-foreground"}`}
                     />
                   ))}
                 </div>
-
-                {/* Comment */}
                 <p className="text-foreground/90 mb-6 leading-relaxed">
                   {`"${review.comment}"`}
                 </p>
-
-                {/* Author */}
                 <div className="flex items-center gap-4 pt-4 border-t border-white/10">
                   <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                     <span className="text-primary font-bold">{review.avatar}</span>
@@ -156,36 +150,21 @@ export function ReviewsSection() {
             ))}
           </div>
 
-          {/* Mobile Navigation */}
           <div className="flex justify-center gap-4 mt-8 md:hidden">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={prevReview}
-              className="rounded-full border-primary/50"
-            >
+            <Button variant="outline" size="icon" onClick={prevReview} className="rounded-full border-primary/50">
               <ChevronLeft className="w-5 h-5" />
             </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={nextReview}
-              className="rounded-full border-primary/50"
-            >
+            <Button variant="outline" size="icon" onClick={nextReview} className="rounded-full border-primary/50">
               <ChevronRight className="w-5 h-5" />
             </Button>
           </div>
 
-          {/* Dots Indicator */}
           <div className="flex justify-center gap-2 mt-6">
             {reviews.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${index === currentIndex
-                    ? "bg-primary w-6"
-                    : "bg-primary/30 hover:bg-primary/50"
-                  }`}
+                className={`w-2 h-2 rounded-full transition-all ${index === currentIndex ? "bg-primary w-6" : "bg-primary/30 hover:bg-primary/50"}`}
                 aria-label={`Go to review ${index + 1}`}
               />
             ))}
@@ -194,21 +173,16 @@ export function ReviewsSection() {
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-          {[
-            { value: "4.9", label: "Calificación Promedio", icon: "⭐" },
-            { value: "10K+", label: "Clientes Felices", icon: "😊" },
-            { value: "3", label: "Sucursales", icon: "📍" },
-            { value: "50+", label: "Platillos en Menú", icon: "🍽️" },
-          ].map((stat, index) => (
-            <div
-              key={stat.label}
-              className="text-center glass-card rounded-xl p-6"
-            >
-              <span className="text-3xl mb-2 block">{stat.icon}</span>
-              <p className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</p>
-              <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
-            </div>
-          ))}
+          {stats.map((stat) => {
+            const Icon = stat.icon
+            return (
+              <div key={stat.label} className="text-center glass-card rounded-xl p-6">
+                <Icon className="w-8 h-8 text-primary mx-auto mb-2" />
+                <p className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</p>
+                <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>
