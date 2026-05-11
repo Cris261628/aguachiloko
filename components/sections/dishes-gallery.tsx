@@ -66,7 +66,7 @@ export function DishesGallery() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-block bg-ocean-deep/60 backdrop-blur-md rounded-3xl px-8 py-6 border border-white/10">
+          <div className="inline-block bg-ocean-deep/60 backdrop-blur-md px-8 py-6 border border-white/10">
             <span className="text-primary text-sm font-semibold uppercase tracking-wider block">
               Nuestros Platillos
             </span>

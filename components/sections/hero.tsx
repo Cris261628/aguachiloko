@@ -33,7 +33,7 @@ export function Hero() {
         </div>
 
         {/* Tagline */}
-        <div className="bg-ocean-deep/60 backdrop-blur-md rounded-3xl px-8 py-6 mb-8 border border-white/10">
+        <div className="bg-ocean-deep/60 backdrop-blur-md px-8 py-6 mb-8 border border-white/10">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
             <span className="text-primary">Del Mar</span> a Tu Mesa
           </h1>

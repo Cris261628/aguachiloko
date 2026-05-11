@@ -21,7 +21,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo text */}
           <a href="#inicio" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-primary">🦐 Aguachiloco</span>
+            <span className="text-xl font-bold text-primary">Aguachiloco</span>
           </a>
 
           {/* Desktop Navigation */}

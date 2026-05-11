@@ -74,9 +74,9 @@ export function ReviewsSection() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-block bg-ocean-deep/60 backdrop-blur-md rounded-3xl px-8 py-6 border border-white/10">
+          <div className="inline-block bg-ocean-deep/60 backdrop-blur-md px-8 py-6 border border-white/10">
             <span className="text-primary text-sm font-semibold uppercase tracking-wider block">
-             Reseñas
+              Reseñas
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-2 mb-4">
               Lo Que Dicen <span className="text-primary">Nuestros Clientes</span>
@@ -86,7 +86,7 @@ export function ReviewsSection() {
             </p>
           </div>
         </div>
-        
+
 
         {/* Reviews Carousel */}
         <div className="relative">
@@ -127,11 +127,10 @@ export function ReviewsSection() {
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-5 h-5 ${
-                        i < review.rating
+                      className={`w-5 h-5 ${i < review.rating
                           ? "text-yellow-400 fill-yellow-400"
                           : "text-muted-foreground"
-                      }`}
+                        }`}
                     />
                   ))}
                 </div>
@@ -183,11 +182,10 @@ export function ReviewsSection() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex
+                className={`w-2 h-2 rounded-full transition-all ${index === currentIndex
                     ? "bg-primary w-6"
                     : "bg-primary/30 hover:bg-primary/50"
-                }`}
+                  }`}
                 aria-label={`Go to review ${index + 1}`}
               />
             ))}
